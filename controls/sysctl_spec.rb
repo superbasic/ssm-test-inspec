@@ -181,33 +181,38 @@ control 'sysctl-13' do
   end
 end
 
+##################
+# temp disabling 
 #3.3.1
-control 'sysctl-14' do
-  impact 1.0
-  title 'Disable acceptance of all IPv4 redirected packets'
-  desc 'Disable acceptance of all redirected packets these prevents Man-in-the-Middle attacks.'
-  only_if { !container_execution }
-  describe kernel_parameter('net.ipv4.conf.default.accept_redirects') do
-    its(:value) { should eq 0 }
-  end
-  describe kernel_parameter('net.ipv4.conf.all.accept_redirects') do
-    its(:value) { should eq 0 }
-  end
-end
+#control 'sysctl-14' do
+#  impact 1.0
+#  title 'Disable acceptance of all IPv4 redirected packets'
+#  desc 'Disable acceptance of all redirected packets these prevents Man-in-the-Middle attacks.'
+#  only_if { !container_execution }
+#  describe kernel_parameter('net.ipv4.conf.default.accept_redirects') do
+#    its(:value) { should eq 0 }
+#  end
+#  describe kernel_parameter('net.ipv4.conf.all.accept_redirects') do
+#    its(:value) { should eq 0 }
+#  end
+#end
 
 #3.3.2
-control 'sysctl-15' do
-  impact 1.0
-  title 'Disable acceptance of all secure redirected packets'
-  desc 'Disable acceptance of all secure redirected packets these prevents Man-in-the-Middle attacks.'
-  only_if { !container_execution }
-  describe kernel_parameter('net.ipv4.conf.all.secure_redirects') do
-    its(:value) { should eq 0 }
-  end
-  describe kernel_parameter('net.ipv4.conf.default.secure_redirects') do
-    its(:value) { should eq 0 }
-  end
-end
+#control 'sysctl-15' do
+#  impact 1.0
+#  title 'Disable acceptance of all secure redirected packets'
+#  desc 'Disable acceptance of all secure redirected packets these prevents Man-in-the-Middle attacks.'
+#  only_if { !container_execution }
+#  describe kernel_parameter('net.ipv4.conf.all.secure_redirects') do
+#    its(:value) { should eq 0 }
+#  end
+#  describe kernel_parameter('net.ipv4.conf.default.secure_redirects') do
+#    its(:value) { should eq 0 }
+#  end
+#end
+#################
+# temp disabling
+#################
 
 #3.2.2
 control 'sysctl-16' do
