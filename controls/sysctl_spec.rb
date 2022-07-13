@@ -210,23 +210,23 @@ end
 #    its(:value) { should eq 0 }
 #  end
 #end
+#
+##3.2.2
+#control 'sysctl-16' do
+#  impact 1.0
+#  title 'Disable sending of redirects packets'
+#  desc 'Disable sending of redirects packets'
+#  only_if { !container_execution }
+#  describe kernel_parameter('net.ipv4.conf.default.send_redirects') do
+#    its(:value) { should eq 0 }
+#  end
+#  describe kernel_parameter('net.ipv4.conf.all.send_redirects') do
+#    its(:value) { should eq 0 }
+#  end
+#end
 #################
 # temp disabling
 #################
-
-#3.2.2
-control 'sysctl-16' do
-  impact 1.0
-  title 'Disable sending of redirects packets'
-  desc 'Disable sending of redirects packets'
-  only_if { !container_execution }
-  describe kernel_parameter('net.ipv4.conf.default.send_redirects') do
-    its(:value) { should eq 0 }
-  end
-  describe kernel_parameter('net.ipv4.conf.all.send_redirects') do
-    its(:value) { should eq 0 }
-  end
-end
 
 #control 'sysctl-17' do
 #  impact 1.0
